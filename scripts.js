@@ -132,6 +132,6 @@ function play() {
 function games() {
   // TODO útfæra
   console.log(`Þú hefur spilað ${wins+losses} umferðir.`)
-  if(wins + losses > 0) console.log(`Þar af hefur þú unnið ${wins} af þeim (${wins/(wins+losses)*100}% sigurhlutfall)`);
+  if(wins + losses > 0) console.log(`Þar af hefur þú unnið ${wins} af þeim (${(wins/(wins+losses)*100).toFixed(2)}% sigurhlutfall)`);
 }
 // Hér getum við ekki skrifað test þar sem fallið les úr global state
