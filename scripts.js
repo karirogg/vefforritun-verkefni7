@@ -19,7 +19,7 @@ let losses = 0;
  */
 function isValidBestOf(bestOf) {
   // TODO útfæra
-  if(parseInt(bestOf) % 2 == 0 || parseInt(bestOf) > 10) return false;
+  if(Number.parseInt(bestOf) % 2 === 0 || Number.parseInt(bestOf) > 10) return false;
   return true;
 }
 console.assert(isValidBestOf(1) === true, '1 er valid best of');
@@ -74,8 +74,8 @@ function round() {
   // 6. Skila hver vann
   
   let playerOut = prompt("Hverju vilt þú leika út? (1 fyrir skæri, 2 fyrir blað og 3 fyrir steinn)");
-  if(playerOut == null) return null;
-  if(playAsText(playerOut) == "Óþekkt") {
+  if(playerOut === null) return null;
+  if(playAsText(playerOut) === "Óþekkt") {
     alert("Þú spilaðir ólöglega út. Tölvan vann þennan leik :(");
     return -1;
   }
@@ -107,22 +107,22 @@ function play() {
   let winningNumberOfGames = Math.floor(amountOfGames/2)+1;
   for(let i = 0; i<amountOfGames; i++) {
       let result = round();
-      while(result !== null && result == 0) result = round();
-      if(result == null) return;
-      if(result == 1) playerWins++;
-      else if(result == -1) computerWins++;
+      while(result !== null && result === 0) result = round();
+      if(result === null) return;
+      if(result === 1) playerWins++;
+      else if(result === -1) computerWins++;
 
       alert(`Staðan er ${playerWins}-${computerWins}`);
 
-      if(playerWins == winningNumberOfGames) {
+      if(playerWins === winningNumberOfGames) {
           wins++;
           break;
-      } else if (computerWins == winningNumberOfGames) {
+      } else if (computerWins === winningNumberOfGames) {
           losses++;
           break;
       }
   }
-  alert(playerWins == winningNumberOfGames ? "Þú vannst umferðina!" : "Tölvan vann umferðina:(");
+  alert(playerWins === winningNumberOfGames ? "Þú vannst umferðina!" : "Tölvan vann umferðina:(");
 }
 // Hér getum við ekki skrifað test þar sem fallið mun biðja notanda um inntak!
 
