@@ -99,7 +99,7 @@ function play() {
   // 4. Birta hvort spilari eða tölva vann
   let amountOfGames = parseInt(prompt("Hversu marga leiki viltu spila? (oddatala lægri en 10)"));
   if(!isValidBestOf(amountOfGames)) {
-    alert("Ólöglegur fjöldi leikja!");
+    console.error("Ólöglegur fjöldi leikja!");
     return;
   }
   let playerWins = 0;
@@ -131,6 +131,7 @@ function play() {
  */
 function games() {
   // TODO útfæra
-  alert(`Þú hefur spilað ${wins+losses} umferðir og unnið ${wins} af þeim (${wins/(wins+losses)*100}% sigurhlutfall)`);
+  console.log(`Þú hefur spilað ${wins+losses} umferðir.`)
+  if(wins + losses > 0) console.log(`Þar af hefur þú unnið ${wins} af þeim (${wins/(wins+losses)*100}% sigurhlutfall)`);
 }
 // Hér getum við ekki skrifað test þar sem fallið les úr global state
